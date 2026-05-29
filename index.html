@@ -78,6 +78,8 @@
             font-size: 14px;
             font-weight: 600;
             transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-primary {
@@ -225,6 +227,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 20px;
+            margin-bottom: 40px;
         }
 
         @media (max-width: 768px) {
@@ -255,6 +258,67 @@
             font-weight: bold;
             color: #0d5c3a;
             text-align: right;
+        }
+
+        /* --- TESTIMONIAL FORM STYLE --- */
+        .testimonial-form-container {
+            background-color: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .testimonial-form-container h3 {
+            font-family: 'Georgia', serif;
+            color: #0d5c3a;
+            margin-bottom: 15px;
+            text-align: center;
+            font-size: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus, 
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #0d5c3a;
+        }
+
+        .form-submit-btn {
+            background-color: #0d5c3a;
+            color: #ffffff;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+
+        .form-submit-btn:hover {
+            background-color: #0b462c;
         }
 
         /* --- CALL TO ACTION --- */
@@ -407,7 +471,7 @@
                     <div class="product-info">
                         <div>
                             <h3>Tas Bahu Kain Batik</h3>
-                            <p>Tas bahu elegan yang menghadirkan keindahan seni batik Indonesia dalam desain modern dan praktis. Dibuat dari kain batik berkualitas  dengan motif khas yang menarik, memberikan sentuhan budaya yang memesona pada gaya Anda..</p>
+                            <p>Tas bahu elegan yang menghadirkan keindahan seni batik Indonesia dalam desain modern dan praktis Dibuat dari kain batik berkualitas dengan motif khas yang menarik, memberikan sentuhan budaya yang memesona pada gaya Anda..</p>
                         </div>
                         <div class="price-tag">
                             <span>Harga Spesial:</span>
@@ -482,7 +546,8 @@
                         <img src="produk_06.jpg" alt="Tas Rajut Embos Daun 3D" class="product-image-real">
                     </div>
                 </div>
-                 <div class="product-card">
+
+                <div class="product-card">
                     <div class="product-info">
                         <div>
                             <h3>Tas Frame Pesta Wanita</h3>
@@ -497,16 +562,17 @@
                         <img src="produk_09.jpg" alt="Tas Rajut Embos Daun 3D" class="product-image-real">
                     </div>
                 </div>
-                 <div class="product-card">
-                 <div class="product-info">
-                    <div>
-                            <h3>Dompet Rajut  Eleghan</h3>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <div>
+                            <h3>Dompet Rajut Eleghan</h3>
                             <p>Dompet Rajut Hitam Berkualitas dan eleghan sangat cocok untuk ibu-ibu</p>
                         </div>
                         <div class="price-tag">
                             <span>Harga Spesial:</span>
                             <span class="price-value">Rp.25.800</span>
-                        <div>
+                        </div>
                     </div>
                     <div class="product-image-container">
                         <img src="produk_08.jpg" alt="Dompet Eleghan" class="product-image-real">
@@ -526,11 +592,13 @@
             </div>
         </section>
 
+        <!-- --- SECTION TESTIMONI (DENGAN FORMULIR) --- -->
         <section id="testimoni" class="testimonials-section">
             <div class="section-title">
                 <h2>Testimoni Pelanggan</h2>
                 <p>Kepuasan pelanggan adalah prioritas kami</p>
             </div>
+            
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <p>“Tas rajutnya sangat cantik dan rapi. Bahannya juga kuat dan nyaman dipakai.”</p>
@@ -545,12 +613,39 @@
                     <span class="testimonial-author">— Andi, Donggala</span>
                 </div>
             </div>
+
+            <!-- Formulir Pengisian Testimoni -->
+            <div class="testimonial-form-container">
+                <h3>Bagikan Pengalaman Anda</h3>
+                <form action="https://formsubmit.co/avirispm2211@gmail.com" method="POST">
+                    <!-- Pengaturan FormSubmit -->
+                    <input type="hidden" name="_subject" value="Testimoni Baru - AVIRIS Handmade Website">
+                    <input type="hidden" name="_template" value="table">
+                    
+                    <div class="form-group">
+                        <label for="name">Nama Lengkap</label>
+                        <input type="text" id="name" name="Nama" placeholder="Contoh: Budi" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="location">Asal Kota / Daerah</label>
+                        <input type="text" id="location" name="Asal Kota" placeholder="Contoh: Sigi" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Isi Testimoni</label>
+                        <textarea id="message" name="Pesan Testimoni" rows="4" placeholder="Tuliskan ulasan Anda mengenai produk kami di sini..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn form-submit-btn">Kirim Testimoni</button>
+                </form>
+            </div>
         </section>
 
         <section id="cta" class="cta-section">
             <h3>Yuk Pesan Produk Handmade Favorit Anda!</h3>
             <p>Tampil lebih stylish dengan produk rajutan handmade modern dan berkualitas dari AVIRIS Handmade Crochet.</p>
-            <a href="https://wa.me/+62 852-8196-3580" class="btn btn-whatsapp" target="_blank">Chat WhatsApp / Hubungi Sekarang</a>
+            <a href="https://wa.me/+6285281963580" class="btn btn-whatsapp" target="_blank">Chat WhatsApp / Hubungi Sekarang</a>
         </section>
 
         <section id="kontak" class="contact-section">
