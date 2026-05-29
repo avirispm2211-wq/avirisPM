@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AVIRIS Handmade Crochet - Kerajinan Rajut Modern</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f4f6f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* --- HEADER SECTION --- */
+        .catalog-header {
+            background-color: #0d5c3a;
+            color: #ffffff;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .catalog-header h1 {
+            font-family: 'Georgia', serif;
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 10px;
+        }
+
+        .catalog-header p {
+            font-size: 16px;
+            max-width: 650px;
+            margin: 0 auto 25px auto;
+            opacity: 0.95;
+        }
+
+        .header-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: #f4c444;
+            color: #0d5c3a;
+        }
+
+        .btn-primary:hover {
+            background-color: #e5b333;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: #ffffff;
+            border: 2px solid #ffffff;
+        }
+
+        .btn-secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* --- SECTION GLOBAL STYLE --- */
+        section {
+            padding: 40px 30px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            font-family: 'Georgia', serif;
+            font-size: 28px;
+            color: #0d5c3a;
+            margin-bottom: 5px;
+        }
+
+        .section-title p {
+            font-size: 14px;
+            color: #666;
+            font-style: italic;
+        }
+
+        /* --- PRODUCTS GRID --- */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            background-color: #f9fbf9;
+        }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .product-card {
+            background-color: #ffffff;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+            display: flex;
+            overflow: hidden;
+            height: 180px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+        }
+
+        .product-info {
+            flex: 1;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-info h3 {
+            font-size: 16px;
+            color: #0d5c3a;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .product-info p {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .price-tag {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 11px;
+            font-weight: 600;
+            margin-top: 8px;
+        }
+
+        .price-value {
+            background-color: #0d5c3a;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 12px;
+        }
+
+        .product-image-container {
+            width: 130px;
+            background-color: #f4c444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .product-image-real {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* --- ABOUT SECTION --- */
+        .about-section {
+            background-color: #ffffff;
+            border-top: 1px solid #eee;
+        }
+
+        .about-content p {
+            margin-bottom: 15px;
+            color: #4a5568;
+            text-align: justify;
+            font-size: 15px;
+        }
+
+        /* --- TESTIMONIALS SECTION --- */
+        .testimonials-section {
+            background-color: #f1f6f3;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .testimonial-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card p {
+            font-size: 14px;
+            font-style: italic;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-author {
+            font-size: 13px;
+            font-weight: bold;
+            color: #0d5c3a;
+            text-align: right;
+        }
+
+        /* --- CALL TO ACTION --- */
+        .cta-section {
+            background-color: #0d5c3a;
+            color: white;
+            text-align: center;
+            padding: 50px 30px;
+        }
+
+        .cta-section h3 {
+            font-family: 'Georgia', serif;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .cta-section p {
+            font-size: 15px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .btn-whatsapp {
+            background-color: #25d366;
+            color: white;
+            padding: 12px 30px;
+            font-size: 16px;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #20ba5a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+        }
+
+        /* --- CONTACT & FOOTER SECTION --- */
+        .contact-section {
+            background-color: #ffffff;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 600px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .contact-info-list {
+            list-style: none;
+        }
+
+        .contact-info-list li {
+            margin-bottom: 12px;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .contact-links a {
+            font-size: 13px;
+            color: #0d5c3a;
+            text-decoration: none;
+            word-break: break-all;
+            background: #f1f6f3;
+            padding: 10px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .contact-links a:hover {
+            background: #e2ede7;
+        }
+
+        .catalog-footer {
+            background-color: #0b462c;
+            color: #ffffff;
+            padding: 25px 30px;
+            text-align: center;
+            font-size: 13px;
+            margin-top: auto;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .catalog-footer p:first-child {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .catalog-footer p:last-child {
+            opacity: 0.7;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header class="catalog-header" id="home">
+            <div class="header-top">
+                <span class="brand">AVIRIS Handmade Crochet</span>
+                <span class="instagram">@avirishandmade</span>
+            </div>
+            <h1>Kerajinan Rajut Handmade yang Elegan & Modern</h1>
+            <p>Temukan koleksi tas rajut, dompet rajut, pouch, bucket hat, dan berbagai produk handmade unik dengan kualitas terbaik dan desain kekinian.</p>
+            <div class="header-buttons">
+                <a href="#produk" class="btn btn-primary">Lihat Produk</a>
+                <a href="#cta" class="btn btn-secondary">Pesan Sekarang</a>
+            </div>
+        </header>
+
+        <section id="produk" class="products-grid-container">
+            <div class="section-title">
+                <h2>Produk Utama & Unggulan</h2>
+                <p>Koleksi rajutan handmade eksklusif dan berkualitas</p>
+            </div>
+            
+            <main class="products-grid">
+                <div class="product-card">
+                    <div class="product-info">
+                        <div>
+                            <h3>Tas HP Mini Crochet</h3>
+                            <p>Bahan kuat dan tidak LunturTas bisa dicuci dengan deterjen biasa Bisa memuat Hp dan dompet Koin.</p>
+                        </div>
+                        <div class="price-tag">
+                            <span>Mulai Dari:</span>
+                            <span class="price-value">Rp.67.500</span>
+                        </div>
+                    </div>
+                    <div class="product-image-container">
+                        <img src="produk_01.jpg" alt="Tas HP Mini Crochet" class="product-image-real">
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <div>
+                            <h3>Tas Bahu Kain Batik</h3>
+                            <p>Tas bahu elegan yang menghadirkan keindahan seni batik Indonesia dalam desain modern dan praktis. Dibuat dari kain batik berkualitas  dengan motif khas yang menarik, memberikan sentuhan budaya yang memesona pada gaya Anda..</p>
+                        </div>
+                        <div class="price-tag">
+                            <span>Harga Spesial:</span>
+                            <span class="price-value">Rp.70.500</span>
+                        </div>
+                    </div>
+                    <div class="product-image-container">
+                        <img src="produk_02.jpg" alt="Tas Kain Tenun" class="product-image-real">
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <div>
+                            <h3>Tas Rajut Jingjing</h3>
+                            <p>Tas memiliki ruang utama+ Kantong resleting kecil muat HP dan 1 kantong luar seperti di gambar produk.</p>
+                        </div>
+                        <div class="price-tag">
+                            <span>Mulai Dari:</span>
+                            <span class="price-value">Rp.211.000</span>
+                        </div>
+                    </div>
+                    <div class="product-image-container">
+                        <img src="produk_03.jpg" alt="Tas Rajut Mustard" class="product-image-real">
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <div>
+                            <h3>Ransel Depink Crochet Bag</h3>
+                            <p>Tas ransel rajut kombinasi warna pink-hitam yang manis dengan aksen bunga timbul yang sangat cantik.</p>
+                        </div>
+                        <div class="price-tag">
+                            <span>Harga Spesial:</span>
+                            <span class="price-value">Rp.165.000</span>
+                        </div>
+                    </div>
+                    <div class="product-image-container">
+                        <img src="produk_04.jpg" alt="Ransel Depink Crochet Bag" class="product-image-real">
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <div>
+                            <h3>Handmade Crochet Bag Tosca</h3>
+                            <p>Tas selempang rajut hitam bermotif lingkaran tosca yang stylish, ringan, nyaman, dan eksklusif.</p>
+                        </div>
+                        <div class="price-tag">
+                            <span>Best Seller:</span>
+                            <span class="price-value">Rp.105.000</span>
+                        </div>
+                    </div>
+                    <div class="product-image-container">
+                        <img src="produk_05.jpg" alt="Crochet Bag Tosca" class="product-image-real">
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-info">
+                        <div>
+                            <h3>Tas Rajut Embos Daun 3D</h3>
+                            <p>Tas hitam premium rajutan tangan dengan tekstur timbul kelopak daun 3D yang elegan dan mewah.</p>
+                        </div>
+                        <div class="price-tag">
+                            <span>Eksklusif:</span>
+                            <span class="price-value">Rp.188.000</span>
+                        </div>
+                    </div>
+                    <div class="product-image-container">
+                        <img src="produk_06.jpg" alt="Tas Rajut Embos Daun 3D" class="product-image-real">
+                    </div>
+                </div>
+                 <div class="product-card">
+                    <div class="product-info">
+                        <div>
+                            <h3>Tas Frame Pesta Wanita</h3>
+                            <p>Tas premium Cocok untuk hadiah, pesta, jalan santai, hingga koleksi fashion handmade.</p>
+                        </div>
+                        <div class="price-tag">
+                            <span>Eksklusif:</span>
+                            <span class="price-value">Rp.215.000</span>
+                        </div>
+                    </div>
+                    <div class="product-image-container">
+                        <img src="produk_09.jpg" alt="Tas Rajut Embos Daun 3D" class="product-image-real">
+                    </div>
+                </div>
+                 <div class="product-card">
+                 <div class="product-info">
+                    <div>
+                            <h3>Dompet Rajut  Eleghan</h3>
+                            <p>Dompet Rajut Hitam Berkualitas dan eleghan sangat cocok untuk ibu-ibu</p>
+                        </div>
+                        <div class="price-tag">
+                            <span>Eksklusif:</span>
+                            <span class="price-value">Rp.25.800</span>
+                        <div>
+                    </div>
+                    <div class="product-image-container">
+                        <img src="produk_08.jpg" alt="Dompet Eleghan" class="product-image-real">
+                    </div>
+                </div>
+            </main>
+        </section>
+
+        <section id="tentang" class="about-section">
+            <div class="section-title">
+                <h2>Tentang AVIRIS Handmade</h2>
+            </div>
+            <div class="about-content">
+                <p><strong>AVIRIS Handmade Crochet</strong> adalah usaha kerajinan handmade yang fokus pada pembuatan produk rajutan berkualitas seperti tas, dompet, pouch, dan aksesoris fashion lainnya.</p>
+                <p>Semua produk dibuat secara manual dengan penuh ketelitian dan kreativitas menggunakan bahan pilihan agar menghasilkan produk yang cantik, kuat, dan nyaman digunakan.</p>
+                <p>Kami juga menerima custom desain sesuai keinginan pelanggan mulai dari warna, model, hingga ukuran produk.</p>
+            </div>
+        </section>
+
+        <section id="testimoni" class="testimonials-section">
+            <div class="section-title">
+                <h2>Testimoni Pelanggan</h2>
+                <p>Kepuasan pelanggan adalah prioritas kami</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p>“Tas rajutnya sangat cantik dan rapi. Bahannya juga kuat dan nyaman dipakai.”</p>
+                    <span class="testimonial-author">— Rina, Palu</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>“Saya pesan custom warna dan hasilnya sesuai keinginan. Sangat puas dengan kualitasnya.”</p>
+                    <span class="testimonial-author">— Siska, Sigi</span>
+                </div>
+                <div class="testimonial-card">
+                    <p>“Produknya unik dan cocok dijadikan hadiah spesial untuk keluarga dan teman.”</p>
+                    <span class="testimonial-author">— Andi, Donggala</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="cta" class="cta-section">
+            <h3>Yuk Pesan Produk Handmade Favorit Anda!</h3>
+            <p>Tampil lebih stylish dengan produk rajutan handmade modern dan berkualitas dari AVIRIS Handmade Crochet.</p>
+            <a href="https://wa.me/628xxxxxxxxxx" class="btn btn-whatsapp" target="_blank">Chat WhatsApp / Hubungi Sekarang</a>
+        </section>
+
+        <section id="kontak" class="contact-section">
+            <div class="section-title">
+                <h2>Kontak Kami</h2>
+                <p>Silakan hubungi kami untuk pemesanan dan informasi produk</p>
+            </div>
+            <div class="contact-grid">
+                <div>
+                    <ul class="contact-info-list">
+                        <li><strong>AVIRIS Handmade Crochet</strong></li>
+                        <li>📍 Desa Tinggede Selatan BTN Green Andara Blok A4, Kecamatan Marawola, Kabupaten Sigi</li>
+                        <li>📞 WhatsApp: +62 852-8196-3580</li>
+                        <li>📷 Instagram: https://www.instagram.com/riris_aviriscraft?igsh=bngzNWRsZTF2aTJs</li>
+                        <li>📧 Email: avirispm2211@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="contact-links">
+                    <p style="font-size: 14px; font-weight: bold; color: #0d5c3a; margin-bottom: 5px;">Tautan Toko Resmi:</p>
+                    <a href="https://s.shopee.co.id/9fHwBI6fuz" target="_blank">Shopee: s.shopee.co.id/9fHwBI6fuz</a>
+                    <a href="https://www.facebook.com/share/1CprFU9gec/" target="_blank">Facebook: Official Share Link</a>
+                </div>
+            </div>
+        </section>
+
+        <footer class="catalog-footer">
+            <p>AVIRIS Handmade Crochet</p>
+            <p>Kerajinan Rajut Handmade Modern dan Berkualitas</p>
+            <p>&copy; 2026 AVIRIS Handmade Crochet</p>
+        </footer>
+    </div>
+
+</body>
+</html>
